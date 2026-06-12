@@ -17,29 +17,6 @@ I enjoy building practical projects that solve real-world problems while continu
 
 ---
 
-## Projects
-
-### 1. Smart Data Preprocessing AI
-An AI-powered tool that analyzes datasets and recommends suitable preprocessing techniques such as handling missing values, detecting duplicates, identifying data types, and suggesting appropriate imputation methods.
-
-**Tech Stack:** Python, Pandas, NumPy, Scikit-learn, Jupyter Notebook
-
----
-
-### 2. Human Activity Recognition
-A machine learning project that predicts human activities based on sensor data collected from wearable devices.
-
-**Tech Stack:** Python, Pandas, Scikit-learn, Matplotlib
-
----
-
-### 3. Diabetes Prediction
-A predictive model that determines the likelihood of diabetes using medical attributes and classification algorithms.
-
-**Tech Stack:** Python, Pandas, Scikit-learn
-
----
-
 ## Upcoming Projects
 - Deep Learning Projects
 - Computer Vision Applications
