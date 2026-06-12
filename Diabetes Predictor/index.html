@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diabetes Risk Prediction System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="10" fill="url(#logoGrad)"/>
+          <path d="M16 7v18M7 16h18" stroke="white" stroke-width="3" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#1a6fc4"/>
+              <stop offset="1" stop-color="#0ea8d0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">MedPredict<sup>AI</sup></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="#" class="nav-cta">Get Started</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#1a6fc4" stroke-width="1.5"/><path d="M7 4v4M7 9.5v.5" stroke="#1a6fc4" stroke-width="1.5" stroke-linecap="round"/></svg>
+        AI-Powered Health Analytics
+      </div>
+      <h1 class="hero-title">Diabetes Risk<br><em>Prediction System</em></h1>
+      <p class="hero-subtitle">Predict diabetes risk using health and lifestyle indicators — powered by machine learning for early awareness and prevention.</p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">537M</span><span class="stat-label">Adults affected globally</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">80%</span><span class="stat-label">Cases preventable</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">Early</span><span class="stat-label">Detection saves lives</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="medical-card-float card-f1">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM10 16a6 6 0 01-4.67-2.23A5.98 5.98 0 0110 12c1.78 0 3.37.78 4.47 2.03A5.98 5.98 0 0110 16z" fill="#1a6fc4"/></svg>
+        <div><div class="fc-title">Patient ID</div><div class="fc-val">#A-2847</div></div>
+      </div>
+      <div class="medical-card-float card-f2">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l2.09 4.26L17 7.27l-3.5 3.41.83 4.82L10 13.3l-4.33 2.2.83-4.82L3 7.27l4.91-.71L10 2z" fill="#e53e3e"/></svg>
+        <div><div class="fc-title">Risk Level</div><div class="fc-val" style="color:#e53e3e">Moderate</div></div>
+      </div>
+      <div class="medical-card-float card-f3">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="9" width="16" height="2" rx="1" fill="#38a169"/><rect x="9" y="2" width="2" height="16" rx="1" fill="#38a169"/></svg>
+        <div><div class="fc-title">Blood Glucose</div><div class="fc-val" style="color:#38a169">Normal</div></div>
+      </div>
+      <!-- ECG Illustration -->
+      <div class="ecg-container">
+        <svg class="ecg-svg" viewBox="0 0 500 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <path class="ecg-line" d="M0 60 L60 60 L80 60 L90 30 L100 90 L115 15 L130 90 L145 60 L180 60 L200 60 L220 60 L230 30 L240 90 L255 15 L270 90 L285 60 L320 60 L340 60 L350 30 L360 90 L375 15 L390 90 L405 60 L440 60 L500 60"
+            stroke="url(#ecgGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="ecgGrad" x1="0" y1="0" x2="500" y2="0" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#1a6fc4" stop-opacity="0.2"/>
+              <stop offset="0.3" stop-color="#1a6fc4"/>
+              <stop offset="0.7" stop-color="#0ea8d0"/>
+              <stop offset="1" stop-color="#0ea8d0" stop-opacity="0.2"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="ecg-label">Live Health Monitor</div>
+      </div>
+      <!-- Gauge -->
+      <div class="gauge-wrap">
+        <svg class="gauge-svg" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 90 A60 60 0 0 1 140 90" stroke="#e2ecf8" stroke-width="14" stroke-linecap="round" fill="none"/>
+          <path d="M20 90 A60 60 0 0 1 90 30" stroke="url(#gaugeGrad)" stroke-width="14" stroke-linecap="round" fill="none" class="gauge-arc"/>
+          <circle cx="80" cy="90" r="6" fill="#1a6fc4"/>
+          <line x1="80" y1="90" x2="60" y2="52" stroke="#1a6fc4" stroke-width="3" stroke-linecap="round" class="gauge-needle"/>
+          <text x="80" y="82" text-anchor="middle" font-size="12" fill="#1a6fc4" font-family="DM Sans" font-weight="600">42%</text>
+          <defs>
+            <linearGradient id="gaugeGrad" x1="20" y1="90" x2="90" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#38a169"/>
+              <stop offset="1" stop-color="#ecc94b"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="gauge-label">Risk Score</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section class="form-section" id="predict">
+    <div class="section-label">Step 1 — Health Assessment</div>
+    <h2 class="section-title">Enter Your Health Details</h2>
+    <p class="section-sub">Provide accurate health information for a reliable prediction.</p>
+
+    <form class="prediction-form" action="/predict" method="POST" id="predictionForm">
+      <div class="form-grid">
+
+        <!-- BMI -->
+        <div class="field-group">
+          <label for="bmi">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="7" width="14" height="2" rx="1" fill="#1a6fc4"/><rect x="7" y="1" width="2" height="14" rx="1" fill="#1a6fc4"/></svg>
+            BMI (Body Mass Index)
+          </label>
+          <div class="input-wrap">
+            <input type="number" id="bmi" name="bmi" placeholder="e.g. 24.5" step="0.1" min="10" max="60" required />
+            <span class="unit-badge">kg/m²</span>
+          </div>
+          <div class="bmi-scale">
+            <span>Underweight &lt;18.5</span>
+            <span>Normal 18.5–24.9</span>
+            <span>Obese ≥30</span>
+          </div>
+        </div>
+
+        <!-- Age -->
+        <div class="field-group">
+          <label for="age">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="#1a6fc4" stroke-width="1.5"/><path d="M8 5v3.5l2 2" stroke="#1a6fc4" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Age
+          </label>
+          <div class="input-wrap">
+            <input type="number" id="age" name="age" placeholder="e.g. 45" min="1" max="120" required />
+            <span class="unit-badge">years</span>
+          </div>
+        </div>
+
+        <!-- High Blood Pressure -->
+        <div class="field-group">
+          <label for="highbp">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6zm0 2.5a.5.5 0 01.5.5v2.793l1.854 1.853a.5.5 0 01-.708.708L7.646 8.354A.5.5 0 017.5 8V5a.5.5 0 01.5-.5z" fill="#1a6fc4"/></svg>
+            High Blood Pressure
+          </label>
+          <div class="select-wrap">
+            <select id="highbp" name="HighBP" required>
+              <option value="" disabled selected>Select option</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+            <svg class="select-arrow" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#1a6fc4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+        </div>
+
+        <!-- High Cholesterol -->
+        <div class="field-group">
+          <label for="highchol">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM7.25 5a.75.75 0 011.5 0v3.5a.75.75 0 01-1.5 0V5zm.75 6.5a.75.75 0 110-1.5.75.75 0 010 1.5z" fill="#1a6fc4"/></svg>
+            High Cholesterol
+          </label>
+          <div class="select-wrap">
+            <select id="highchol" name="HighChol" required>
+              <option value="" disabled selected>Select option</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+            <svg class="select-arrow" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#1a6fc4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+        </div>
+
+        <!-- Smoker -->
+        <div class="field-group">
+          <label for="smoker">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 10h9v3H2zM13 10h1v3h-1zM11 10h1v3h-1z" fill="#1a6fc4" opacity=".7"/><path d="M12 4c0-2-2-2-2-4M10 6c1 0 3 .5 3 3" stroke="#1a6fc4" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+            Smoker
+          </label>
+          <div class="select-wrap">
+            <select id="smoker" name="Smoker" required>
+              <option value="" disabled selected>Select option</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+            <svg class="select-arrow" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#1a6fc4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+        </div>
+
+        <!-- Physical Activity -->
+        <div class="field-group">
+          <label for="physactivity">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="10" cy="3" r="1.5" fill="#1a6fc4"/><path d="M7 5.5l-2 4 3-.5 1.5 3.5" stroke="#1a6fc4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M6 9.5l-2 3" stroke="#1a6fc4" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+            Physical Activity
+          </label>
+          <div class="select-wrap">
+            <select id="physactivity" name="PhysActivity" required>
+              <option value="" disabled selected>Select option</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+            <svg class="select-arrow" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#1a6fc4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+        </div>
+
+        <!-- General Health -->
+        <div class="field-group">
+          <label for="genhlth">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 10.1l-3.2 1.8.6-3.6L2.8 5.8l3.6-.5L8 2z" fill="#1a6fc4"/></svg>
+            General Health (1–5)
+          </label>
+          <div class="select-wrap">
+            <select id="genhlth" name="GenHlth" required>
+              <option value="" disabled selected>Select option</option>
+              <option value="1">1 — Excellent</option>
+              <option value="2">2 — Very Good</option>
+              <option value="3">3 — Good</option>
+              <option value="4">4 — Fair</option>
+              <option value="5">5 — Poor</option>
+            </select>
+            <svg class="select-arrow" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#1a6fc4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+        </div>
+
+        <!-- Heart Disease -->
+        <div class="field-group">
+          <label for="heartdisease">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13.5S2 9.5 2 5.5A3.5 3.5 0 018 3.1 3.5 3.5 0 0114 5.5c0 4-6 8-6 8z" fill="#e53e3e" opacity=".8"/></svg>
+            Heart Disease or Attack
+          </label>
+          <div class="select-wrap">
+            <select id="heartdisease" name="HeartDiseaseorAttack" required>
+              <option value="" disabled selected>Select option</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+            <svg class="select-arrow" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#1a6fc4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+        </div>
+
+        <!-- Sex -->
+        <div class="field-group">
+          <label for="sex">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3.5" stroke="#1a6fc4" stroke-width="1.5" fill="none"/><path d="M8 9.5v4M6 12h4" stroke="#1a6fc4" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Sex
+          </label>
+          <div class="select-wrap">
+            <select id="sex" name="Sex" required>
+              <option value="" disabled selected>Select option</option>
+              <option value="1">Male</option>
+              <option value="0">Female</option>
+            </select>
+            <svg class="select-arrow" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="#1a6fc4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+        </div>
+
+      </div><!-- /.form-grid -->
+
+      <!-- Submit Button -->
+      <button type="submit" class="predict-btn" id="predictBtn">
+        <span class="btn-text">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1.5a7.5 7.5 0 100 15 7.5 7.5 0 000-15zm.75 10.75h-1.5V8.5h1.5v3.75zm0-5h-1.5v-1.5h1.5v1.5z" fill="white"/></svg>
+          Predict Diabetes Risk
+        </span>
+        <span class="btn-loading" id="btnLoading" style="display:none;">
+          <svg class="spin" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="rgba(255,255,255,0.4)" stroke-width="2"/><path d="M9 2a7 7 0 017 7" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+          Analyzing your data…
+        </span>
+      </button>
+    </form>
+
+    <!-- Result Card -->
+    <div class="result-card" id="resultCard" style="display:none;">
+      <div class="result-icon" id="resultIcon"></div>
+      <div class="result-content">
+        <div class="result-tag" id="resultTag"></div>
+        <h3 class="result-title" id="resultTitle"></h3>
+        <p class="result-desc" id="resultDesc"></p>
+        <div class="result-bars" id="resultBars"></div>
+      </div>
+      <button class="result-reset" id="resultReset">Run Another Assessment</button>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM7.25 5a.75.75 0 011.5 0v3.5a.75.75 0 01-1.5 0V5zm.75 6.5a.75.75 0 110-1.5.75.75 0 010 1.5z" fill="#718096"/></svg>
+      <p>This tool is for <strong>educational purposes only</strong> and not a medical diagnosis. Always consult a qualified healthcare professional for medical advice.</p>
+    </div>
+  </section>
+
+  <!-- Info Strip -->
+  <section class="info-strip">
+    <div class="info-card">
+      <div class="info-icon" style="background:linear-gradient(135deg,#ebf8ff,#bee3f8)">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3C8 3 3 8 3 14s5 11 11 11 11-5 11-11S20 3 14 3zm0 4a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm0 15.4a8.4 8.4 0 01-6.54-3.12A6.98 6.98 0 0114 16.8c2.49 0 4.71 1.09 6.26 2.84A8.4 8.4 0 0114 22.4z" fill="#1a6fc4"/></svg>
+      </div>
+      <h4>Personalized Analysis</h4>
+      <p>Our model factors in your unique lifestyle and health data to generate a tailored risk assessment.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon" style="background:linear-gradient(135deg,#f0fff4,#c6f6d5)">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4l2.93 5.96 6.57.95-4.75 4.63 1.12 6.53L14 18.96l-5.87 3.11 1.12-6.53-4.75-4.63 6.57-.95L14 4z" fill="#38a169"/></svg>
+      </div>
+      <h4>Evidence-Based Model</h4>
+      <p>Built on CDC BRFSS data with thousands of validated health records for maximum reliability.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon" style="background:linear-gradient(135deg,#fff5f5,#fed7d7)">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4.5S5 10 5 16.5a9 9 0 0018 0C23 10 14 4.5 14 4.5z" fill="#e53e3e" opacity=".8"/></svg>
+      </div>
+      <h4>Early Prevention</h4>
+      <p>Up to 80% of type-2 diabetes cases are preventable. Early risk awareness empowers proactive choices.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="10" fill="url(#fLogoGrad)"/><path d="M16 7v18M7 16h18" stroke="white" stroke-width="3" stroke-linecap="round"/><defs><linearGradient id="fLogoGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#1a6fc4"/><stop offset="1" stop-color="#0ea8d0"/></linearGradient></defs></svg>
+        <div>
+          <div class="footer-name">MedPredict AI</div>
+          <div class="footer-tagline">Intelligent Health Screening</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-copy">© 2025 MedPredict AI. For educational use only.</div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
